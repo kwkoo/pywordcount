@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Read Text Output</title> 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+ <a href="/"><h3>Back to Main Page</h3></a>
+  <div>
+	<p><h1>Document</h1></p>
+  </div>
+
+<body>
+{% for i in value %}
+	<h5>{{i}}</h5>
+{% endfor %} 
+</body>
+
+</div>

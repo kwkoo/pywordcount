@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "Before assembling"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    pip install nltk
+    python -m nltk.downloader punkt
+	python -m nltk.downloader averaged_perceptron_tagger
+	python -m nltk.downloader maxent_ne_chunker
+	python -m nltk.downloader words
+else
+    echo "After failed assembling"
+fi
+
+exit $rc

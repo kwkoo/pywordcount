@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+        <a href="/"><h3>Back to Main Page</h3></a>
+      <div class="header">
+        <h3 class="text-muted">Uploaded files</h3>
+      </div>
+      <hr/>
+      <div>
+      <ul>
+        {% for file in filenames %}
+          <li><a href="{{url_for('uploaded_file', filename=file)}}">{{file}}</a></li>
+        {% endfor %}
+      </ul>
+      </div>
+      <div class="header">
+        <h3 class="text-muted">Navigation</h3>
+      </div>
+      <nav>
+        <a href="/keywordsearch"><h5>Key Word Search</h5></a> 
+      </nav>
+      <nav>
+        <a href="/readtext"><h5>Read Text</h5></a> 
+      </nav>
+      <nav>
+          <a href="/wordcloud"><h5>Word Cloud</h5></a> 
+        </nav>
+        <nav>
+          <a href="/extract_entity"><h5>Extract Entities</h5></a> 
+      </nav>
+      <nav>
+        <a href="/topic_detection"><h5>Topic Detection</h5></a> 
+      </nav>
+      <hr/>    
+      </div>
+    </div>
+  </body>
+</html>

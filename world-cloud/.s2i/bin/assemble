@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "Before assembling"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    ./opt/app-root/etc/scl_enable
+    pip install nltk
+    #python -m nltk.downloader all
+else
+    echo "After failed assembling"
+fi
+
+exit $rc

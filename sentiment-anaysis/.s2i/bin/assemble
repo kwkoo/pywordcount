@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "Before assembling"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    pip install nltk
+	python -m nltk.downloader punkt
+	python -m nltk.downloader stopwords
+	python -m nltk.downloader words
+	python -m nltk.downloader wordnet
+	pip install textblob
+	python -m textblob.download_corpora
+else
+    echo "After failed assembling"
+fi
+
+exit $rc

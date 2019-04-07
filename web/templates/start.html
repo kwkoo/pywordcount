@@ -1,0 +1,39 @@
+<!doctype html>
+<title>Text Analytics</title> 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+ <a href="/"><h1>NLP Main Page</h1></a>
+  <div>
+	<h3>Select Files to Upload</h3>
+  </div>
+
+<div class="upload">	
+	<form action="upload" method="post" enctype="multipart/form-data">
+	<input type="file" multiple="" name="file[]" class="span3" /><br />
+	<input type="submit" value="Upload"  class="span2">
+</form>
+</div>
+
+<div class="header">
+	<h3 class="text-muted">Navigation</h3>
+</div>
+<nav>
+	<a href="/keywordsearch"><h5>Keyword Search</h5></a> 
+</nav>
+<nav>
+	<a href="/readtext"><h5>Read Text</h5></a> 
+</nav>
+<nav>
+	<a href="/wordcloud"><h5>Word Cloud</h5></a> 
+</nav>
+<nav>
+	<a href="/extract_entity"><h5>Extract Entities</h5></a> 
+</nav>
+<nav>
+	<a href="/topic_detection"><h5>Topic Detection</h5></a> 
+</nav>
+<nav>
+	<a href="/sentiment_analysis"><h5>Sentiment Analysis</h5></a> 
+</nav>
+
+</div>

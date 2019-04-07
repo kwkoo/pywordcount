@@ -1,0 +1,34 @@
+<!doctype html>
+<title>Keyword Search</title> 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+ <a href="/"><h3>Back to Main Page</h3></a>
+  <div>
+	<p><h1>Keyword Search Output</h1></p>
+  </div>
+
+  <nav>
+    <a href="/keywordsearch"><h5>Files Found: {{value}}</h5></a> 
+  </nav>
+
+     <div class="header">
+        <h3 class="text-muted">Navigation</h3>
+      </div>
+      <nav>
+        <a href="/keywordsearch"><h5>Key Word Search</h5></a> 
+      </nav>
+      <nav>
+        <a href="/readtext"><h5>Read Text</h5></a> 
+      </nav>
+      <nav>
+          <a href="/wordcloud"><h5>Word Cloud</h5></a> 
+        </nav>
+        <nav>
+          <a href="/extract_entity"><h5>Extract Entities</h5></a> 
+      </nav>
+      <nav>
+        <a href="/topic_detection"><h5>Topic Detection</h5></a> 
+      </nav>
+    </div>
+
+</div>

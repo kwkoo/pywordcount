@@ -1,0 +1,16 @@
+<!doctype html>
+<title>WordCloud Analysis</title> 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+ <a href="/"><h3>Back to Main Page</h3></a>
+  <div>
+	<p><h1>Word Cloud Output</h1></p>
+  </div>
+
+<body>
+{% for imgitem in imgvalue %}
+    <img src="data:image;base64,{{imgitem}}" alt="wordcloud_output">
+{% endfor %} 
+</body>
+
+</div>

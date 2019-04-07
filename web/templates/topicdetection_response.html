@@ -1,0 +1,22 @@
+<!doctype html>
+<title>Topic Detection Output</title> 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+ <a href="/"><h3>Back to Main Page</h3></a>
+  <div>
+	<p><h1>Topics Detected</h1></p>
+  </div>
+
+<!--
+<nav>
+  <a href="/extract_entity"><h5>Extract Entities: {{value}}</h5></a> 
+</nav>
+-->
+
+<body>
+{% for i in value %}
+	<h5>{{i}}</h5>
+{% endfor %}
+</body>
+
+</div>

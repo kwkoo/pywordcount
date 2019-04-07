@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "Before assembling"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    pip install nltk
+    pip install gensim
+	python -m nltk.downloader punkt
+	python -m nltk.downloader stopwords
+	python -m nltk.downloader words
+	python -m nltk.downloader wordnet
+else
+    echo "After failed assembling"
+fi
+
+exit $rc
