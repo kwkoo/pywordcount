@@ -1,7 +1,7 @@
 flask
 flask_restful
 redis
-werkzeug
-emaildata
-requests
-nltk
+pillow
+matplotlib
+numpy
+wordcloud
