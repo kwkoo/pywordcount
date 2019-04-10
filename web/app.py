@@ -187,6 +187,7 @@ def keywordsearch():
 		else:
 			regStr = regStr+kw+"\\b)|(\\b"
 
+	print(regStr,file=sys.stderr)
 	regex = re.compile(regStr, re.I)
 	print(regStr, file=sys.stderr) # print to python console
 
@@ -249,7 +250,9 @@ def readtext():
 	#headers = {'Content-type': 'application/json'}
 
 	# Extract keywords
-	kwfile = open('keywords.txt', 'r')
+	#kwfile = open('keywords.txt', 'r')
+	kwfile = open('vocab/keywords', 'r')
+	
 	kwtext = kwfile.read()
 	kwlist = kwtext.split('\n')
 	regStr = "(\\b" 
