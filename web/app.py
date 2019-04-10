@@ -174,7 +174,9 @@ def keywordsearch():
 			print(e)
 
 	# Extract keywords
-	kwfile = open('keywords.txt', 'r')
+	#kwfile = open('keywords.txt', 'r')
+
+	kwfile = open('vocab/keywords', 'r')
 	kwtext = kwfile.read()
 	kwlist = kwtext.split('\n')
 	regStr = "(\\b" 
