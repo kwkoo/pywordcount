@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  keywords: |-
+    cpf
+    uber
+    singapore
+    Shengwu
+    Lee Hsien Yang
+    Lee Hsien Long
+kind: ConfigMap
+metadata:
+  name: word-config-map
