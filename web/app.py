@@ -34,6 +34,8 @@ app._static_folder = './static/'
 # This is the path to the upload directory
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 UPLOAD_FOLDER = 'uploads/'
+FS_COPY_PATH = 'outputs/keywordhits/'
+
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'eml'])
 
@@ -106,7 +108,8 @@ def wordcloud():
 	textData = json.dumps({"data": "this is Tom"})
 	headers = {'Content-type': 'application/json'}
 	
-	filepath = 'uploads/'
+	#filepath = 'uploads/'
+	filepath = UPLOAD_FOLDER
 
 	filecount=0	
 	infiles = [f for f in listdir(filepath) if isfile(join(filepath, f))]
@@ -155,8 +158,11 @@ def keywordsearch():
 	#headers = {'Content-type': 'application/json'}
 		
 	#filepath = '/home/audi7/Dockerfiles/dockercompose/uploads/'
-	filepath = 'uploads/'
-	copypath = 'outputs/keywordhits/'
+	#filepath = 'uploads/'
+	#copypath = 'outputs/keywordhits/'
+
+	filepath = UPLOAD_FOLDER
+	copypath = FS_COPY_PATH
 
 	# remove files from folder
 	for fileitem in os.listdir(copypath):
@@ -257,7 +263,9 @@ def readtext():
 	
 	COLOR='red'
 	
-	filepath = 'outputs/keywordhits/'
+	#filepath = 'outputs/keywordhits/'
+	filepath = FS_COPY_PATH
+	
 
 	infiles = [f for f in listdir(filepath) if isfile(join(filepath, f))]
 	#texttData = json.dumps({"data": "this is Tom and Jane"})
@@ -321,7 +329,8 @@ def extract_entity():
 	headers = {'Content-type': 'application/json'}
 
 	#filepath = '/home/audi7/Dockerfiles/dockercompose/uploads/'
-	filepath = 'uploads/'
+	#filepath = 'uploads/'
+	filepath = UPLOAD_FOLDER
 	resp_list=[]
 
 	infiles = [f for f in listdir(filepath) if isfile(join(filepath, f))]
@@ -364,7 +373,8 @@ def topic_detection():
 	headers = {'Content-type': 'application/json'}
 
 	#filepath = '/home/audi7/Dockerfiles/dockercompose/uploads/'
-	filepath = 'uploads/'
+	#filepath = 'uploads/'
+	filepath = UPLOAD_FOLDER
 	resp_list=[]
 
 	infiles = [f for f in listdir(filepath) if isfile(join(filepath, f))]
@@ -408,7 +418,8 @@ def sentiment_analysis():
 	headers = {'Content-type': 'application/json'}
 
 	#filepath = '/home/audi7/Dockerfiles/dockercompose/uploads/'
-	filepath = 'uploads/'
+	#filepath = 'uploads/'
+	filepath = UPLOAD_FOLDER
 	resp_list=[]
 
 	infiles = [f for f in listdir(filepath) if isfile(join(filepath, f))]
