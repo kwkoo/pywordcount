@@ -188,6 +188,8 @@ def keywordsearch():
 			regStr = regStr+kw+"\\b)|(\\b"
 
 	print(regStr,file=sys.stderr)
+	regStr = regStr[:-4]
+	print(regStr,file=sys.stderr)
 	regex = re.compile(regStr, re.I)
 	print(regStr, file=sys.stderr) # print to python console
 
