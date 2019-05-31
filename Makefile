@@ -1,6 +1,7 @@
 GIT_BACKEND=https://github.com/kwkoo/pywordcount.git
+GIT_FRONTEND=https://github.com/kwkoo/word-next.git
 
-.PHONY: deploy newproject pvc cm wc-web configvolumes exposewcweb entityextract exposeentityextract sentimentanalysis topicdetection wordcloud exposewordcloud
+.PHONY: deploy newproject pvc cm wc-web configvolumes exposewcweb entityextract exposeentityextract sentimentanalysis topicdetection wordcloud exposewordcloud wordnext
 
 deploy: newproject exposeentityextract sentimentanalysis topicdetection exposewordcloud
 
@@ -91,3 +92,8 @@ exposewordcloud: wordcloud
 	@echo "Exposing word cloud..."
 	sleep 5
 	oc expose svc/wc-wcloud
+
+wordnext:
+	@echo "Creating word-next..."
+	oc new-app nodejs:8~$(GIT_FRONTEND) \
+	  --name=word-next
