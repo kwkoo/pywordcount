@@ -2,7 +2,7 @@ GIT_BACKEND=https://github.com/kwkoo/pywordcount.git
 
 .PHONY: deploy newproject pvc cm wc-web configvolumes exposewcweb entityextract exposeentityextract sentimentanalysis topicdetection wordcloud exposewordcloud
 
-deploy: newproject entityextract exposeentityextract sentimentanalysis topicdetection wordcloud exposewordcloud
+deploy: newproject exposeentityextract sentimentanalysis topicdetection exposewordcloud
 
 newproject:
 	@echo "Creating new project..."
@@ -62,10 +62,10 @@ entityextract:
 		--context-dir=entity-extract \
 		--name=wc-ety-extract
 
-exposeentityextract:
+exposeentityextract: entityextract
 	@echo "Exposing entity extract..."
 	sleep 5
-	oc expose svc/wcloud
+	oc expose svc/wc-ety-extract
 
 sentimentanalysis:
 	@echo "Creating sentiment analysis..."
@@ -87,7 +87,7 @@ wordcloud:
 		--context-dir=world-cloud \
 		--name=wc-wcloud
 
-exposewordcloud:
+exposewordcloud: wordcloud
 	@echo "Exposing word cloud..."
 	sleep 5
 	oc expose svc/wcloud
