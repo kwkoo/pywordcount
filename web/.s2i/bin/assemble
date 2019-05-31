@@ -5,7 +5,7 @@ echo "Before assembling"
 rc=$?
 
 if [ $rc -eq 0 ]; then
-    pip install nltk
+    pip install nltk==3.3
     python -m nltk.downloader all
 else
     echo "After failed assembling"
