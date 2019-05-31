@@ -53,7 +53,7 @@ configvolumes:
 
 exposewcweb:
 	@echo "Exposing wc-web..."
-	oc expose svc wc-web
+	oc expose svc/wc-web
 
 entityextract:
 	@echo "Creating entity extract..."
@@ -90,4 +90,4 @@ wordcloud:
 exposewordcloud: wordcloud
 	@echo "Exposing word cloud..."
 	sleep 5
-	oc expose svc/wcloud
+	oc expose svc/wc-wcloud
