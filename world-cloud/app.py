@@ -3,6 +3,7 @@
 
 from flask import Flask, send_file, request, make_response
 from flask_restful import reqparse, abort, Api, Resource
+from flask_cors import CORS, cross_origin
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 plt.switch_backend('agg')
@@ -17,6 +18,7 @@ import base64
 #from urllib.parse import quote
  
 app = Flask(__name__)
+CORS(app)
 #api = Api(app)
 
 strTweet = ''
@@ -24,10 +26,15 @@ strTweet = ''
 @app.route('/wordcloud_api', methods=['GET', 'POST'])
 def wordcloud_api():
 
-	textdata = request.json
-	#print(textdata)
-	strDict = json.loads(textdata)
-	strdata = str(strDict['data'])
+	textdata = request.get_data().decode("utf-8")
+	if textdata is None:
+		resp=jsonify({"error": "no data"})
+		return resp
+
+	print(textdata)
+	jsondata = json.loads(textdata)
+	strdata = jsondata['data']
+
 	print(strdata)
 	#strdata = "The quick brown fox jumps over the lazy dog"
 	wc = WordCloud(max_font_size=80, background_color='black').generate(strdata)
