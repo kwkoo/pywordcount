@@ -38,10 +38,8 @@ def extract_entity_api():
 				outputList.append(out)
 
 	json_str = json.dumps(outputList)
-	
-	#json_str = "test"
+
 	resp=jsonify(json_str)
-	resp.headers['Access-Control-Allow-Origin'] = '*'
 	return resp
 
 #api.add_resource(extract_entity_api, '/')
